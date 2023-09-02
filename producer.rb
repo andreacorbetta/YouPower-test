@@ -6,7 +6,7 @@ connection = Bunny.new(host:  'localhost',
                        port:  '4369',
                        vhost: '/',
                        user:  'guest',
-                       pass:  'guest')
+                       pass:  'guest')                    
 connection.start
 
 # channel creation
@@ -17,7 +17,13 @@ channel = connection.create_channel
 
 queue = channel.queue('hello', durable: true)
 
-channel.default_exchange.publish('Hello World!', routing_key: queue.name, persistent: true)
+# retrieve message from command line
+
+message = ARGV.empty? ? 'Hello World!' : ARGV.join(' ')
+
+queue.publish(message, persistent: true)
+
+puts " [x] Sent #{message}"
 
 # close connection
 
