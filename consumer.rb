@@ -15,7 +15,7 @@ channel = connection.create_channel
 
 # queue declaration
 
-queue = channel.queue('hello')
+queue = channel.queue('hello', durable: true)
 
 # deliver message asyncronously from queue
 

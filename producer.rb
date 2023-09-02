@@ -15,9 +15,9 @@ channel = connection.create_channel
 
 # queue declaration
 
-queue = channel.queue('hello')
+queue = channel.queue('hello', durable: true)
 
-channel.default_exchange.publish('Hello World!', routing_key: queue.name)
+channel.default_exchange.publish('Hello World!', routing_key: queue.name, persistent: true)
 
 # close connection
 
