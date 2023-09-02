@@ -2,7 +2,11 @@ require 'bunny'
 
 # connect to RabbitMQ server
 
-connection = Bunny.new()
+connection = Bunny.new(host:  'localhost',
+                       port:  '4369',
+                       vhost: '/',
+                       user:  'guest',
+                       pass:  'guest')
 connection.start
 
 # channel creation
