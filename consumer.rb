@@ -2,12 +2,24 @@ require 'bunny'
 
 # connect to RabbitMQ server
 
-connection = Bunny.new(host:  'localhost',
-                       port:  '4369',
-                       vhost: '/',
-                       user:  'guest',
-                       pass:  'guest')
-connection.start
+begin 
+
+  connection = Bunny.new(host:  'localhost',
+                         port:  '4369',
+                         vhost: '/',
+                         user:  'guest',
+                         pass:  'guest')                    
+  connection.start
+
+rescue Bunny::TCPConnectionFailed
+
+  puts "Connection to #{connection.host} failed"
+
+rescue Bunny::PossibleAuthenticationFailureError
+
+  puts "Could not authenticate as #{connection.user}"
+
+end
 
 # channel creation
 
