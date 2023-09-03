@@ -17,7 +17,9 @@ channel = connection.create_channel
 
 queue = channel.queue('hello', durable: true)
 
-# retrieve message from command line
+# retrieve message from command line, default message is 'Hello World!'
+
+puts 'Write a message to the consumer'
 
 message = ARGV.empty? ? 'Hello World!' : ARGV.join(' ')
 
