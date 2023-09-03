@@ -2,13 +2,13 @@ Istruzioni:
 
 -avviare il nodo di RabbitMQ
 
--aprire una CLI
+-aprire un terminal CMD
 
 -eseguire consumer.rb da riga di comando (questo programma continuerà a runnare finchè non riceve un messaggio dal producer)
 
--aprire una seconda CLI
+-aprire un secondo terminal CMD
 
--eseguire dalla seconda CLI producer.rb, scrivendo il contenuto del messaggio (in caso di messaggio vuoto verrà inviato 'Hello World!')
+-eseguire dal secondo terminal producer.rb, scrivendo il contenuto del messaggio (in caso di messaggio vuoto verrà inviato 'Hello World!')
 
 Note:
 
